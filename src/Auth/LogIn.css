@@ -1,0 +1,11 @@
+h2{
+    text-align: center;
+}
+.top{
+    margin-top: 25px;
+}
+.close-btn{
+    background-color: blueviolet;
+    color: white;
+    border-color: white;
+}

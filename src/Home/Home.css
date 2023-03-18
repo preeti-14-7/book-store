@@ -1,0 +1,236 @@
+body {
+    padding: 25px;
+    
+  }
+  #closing {
+    height: 50px;
+  }
+  .top-part{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .close-btn{
+    background-color: blueviolet;
+    color: white;
+    border-color: white;
+  }
+  .newbook{
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    padding: 15px;
+    background-color: blueviolet;
+    border-radius: 5%;
+    color: white;
+    border-color: white;
+    
+  }
+  
+  .newbook:hover,
+  .submit:hover ,.remove:hover,.close-btn:hover{
+    background-color: burlywood;
+   
+  }
+  .material-icons {
+    font-family: "Material Icons";
+  }
+  .submit{
+    padding: 15px;
+    background-color: blueviolet;
+   
+  }
+  .form-content {
+    padding: 15px;
+    display: flex;
+    border-radius: 2%;
+  }
+   h1{
+    font-family: 'Mochiy Pop P One', sans-serif;
+    color: rgb(183, 127, 236);
+   }
+  .container {
+    display: none;
+    position: fixed;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .form-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    margin: auto;
+    width: 20%;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+  }
+  .form-content b{
+    color: blueviolet;
+    font-family: 'Mochiy Pop P One', sans-serif;
+  }
+  input{
+    background-color: transparent;
+    border-radius: 2%;
+    padding: 5%;
+    font-family: monospace;
+    border-color: blueviolet;
+  }
+  
+  @-webkit-keyframes animatetop {
+    from {
+      top: -300px;
+      opacity: 0;
+    }
+    to {
+      top: 0;
+      opacity: 1;
+    }
+  }
+  @keyframes animatetop {
+    from {
+      top: -300px;
+      opacity: 0;
+    }
+    to {
+      top: 0;
+      opacity: 1;
+    }
+  }
+  
+  table {
+    font-family: arial, sans-serif;
+  
+    width: 100%;
+  }
+  
+  td,
+  th {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  
+  td:first-child
+  {
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+  td:nth-child(2)
+  {
+    color:blueviolet;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  .tbl {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  .tbl thead tr {
+    background-color: blueviolet;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.5rem;
+    font-family: 'Oswald', sans-serif;
+  }
+  .tbl thead tr:hover{
+    background-color: burlywood;
+  }
+  .tbl th,
+  .tbl td {
+      padding: 12px 15px;
+  }
+  
+  .tbl tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .tbl tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  .tbl tbody tr:last-of-type {
+    border-bottom: 2px solid blueviolet;
+  }
+  
+  .remove{
+    padding: 10px;
+    background: blueviolet;
+    border-radius: 5%;
+  }
+  
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: burlywood;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: blueviolet;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px blueviolet;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
