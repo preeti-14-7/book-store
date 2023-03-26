@@ -1,18 +1,36 @@
 import "./Home.css";
-import { Link } from "react-router-dom";
+import {useNavigate } from "react-router-dom"
 import React, { useState,useEffect } from 'react';
 import Modal from 'react-modal';
+import { useAuth } from "../contexts/AuthContext"
 // import {db} from '../firebase';
 // import { collection, addDoc, getDocs } from "firebase/firestore";
 
 
 const initialFormData = { title: '', author: '', pages: 0, isRead: false };
 
+const getBook = ()=>{
+  const data = localStorage.getItem('books');
+  if(data){
+    return JSON.parse(data)
+  }
+  else{
+    return []
+  }
+}
+
 function Home() {
-  const [books, setBooks] = useState([]);
+  const { logout } = useAuth()
+  const [books, setBooks] = useState(getBook());
   const [formData, setFormData] = useState(initialFormData);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  
+  const navigate = useNavigate()
+
+  const LogOut = () => {
+    logout();
+    navigate('/');
+  }
+
   const openModal = () => {
     setModalIsOpen(true);
   };
@@ -29,25 +47,34 @@ function Home() {
   }
 
 
+
+  const handleDelete=(T)=>{
+    // console.log(id);
+    const filtered = books.filter((book)=>{
+      return book.title !== T;
+    })
+    setBooks(filtered);
+  }
+
   const addBookToLibrary = (e) => {
     e.preventDefault();
+  
     setBooks([...books, formData]);
-    localStorage.setItem("books", JSON.stringify(books));
     console.log(books);
     closeModal();
   }
   
   useEffect(() => {
-    const savedBooks = JSON.parse(localStorage.getItem("books"));
-    if (savedBooks) {
-      setBooks(savedBooks);
-    }
-  }, []);
+    localStorage.setItem("books", JSON.stringify(books));
+  }, [books]);
 
   return (
     <div>
       <button className="newbook " onClick={openModal}>Add your Book</button>
-      <button className = "signout btn"><Link to="/">Sign Out </Link></button>
+      <div className="temp">
+      <button className = "signout btn" onClick={LogOut}> Sign Out </button>
+      <button className="signout btn remove" onClick={()=>setBooks([])}>Remove All</button>
+      </div>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -112,7 +139,7 @@ function Home() {
                 <td>{book.author}</td>
                 <td>{book.pages}</td>
                 <td>{book.isRead ? 'Yes' : 'No'}</td>
-                <td><button className="btn btn-danger">Remove</button></td>
+                <td><button className="btn btn-danger" onClick={()=>handleDelete(book.title)}>Remove</button></td>
               </tr>
             ))
           ) : (

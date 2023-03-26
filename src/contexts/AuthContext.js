@@ -7,6 +7,7 @@ import firebase from 'firebase/compat/app';
 
 const AuthContext = React.createContext()
 
+
 export function useAuth() {
   return useContext(AuthContext)
 }
@@ -18,14 +19,16 @@ export function AuthProvider({ children }) {
   function signup(email, password) {
     return auth.createUserWithEmailAndPassword(email,password)
   }
+ 
 
   function login(email, password) {
-    console.log("enterd")
+   // console.log("enterd")
     return auth.signInWithEmailAndPassword(email, password)
   }
 
   function logout() {
-    return firebase.auth.signOut()
+      console.log("enterd")
+    return auth.signOut();
   }
 
   function resetPassword(email) {
@@ -56,7 +59,8 @@ export function AuthProvider({ children }) {
     logout,
     resetPassword,
     updateEmail,
-    updatePassword
+    updatePassword,
+    
   }
 
   return (

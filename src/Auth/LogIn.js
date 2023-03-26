@@ -3,17 +3,30 @@ import React, { useRef, useState } from "react"
 import "./LogIn.css";
 import { useAuth } from "../contexts/AuthContext"
 import { Link ,useNavigate } from "react-router-dom"
+import firebase from 'firebase/compat/app';
 
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 function LogIn() {
   const emailRef = useRef()
   const passwordRef = useRef()
   const { login } = useAuth()
+ 
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
-
  
+
+  const signInWithGoogle = async () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    console.log("enter")
+    // try {
+    //   await firebase.auth().signInWithPopup(provider);
+    //     console.log("enter")
+    //      navigate('/home');
+      
+    // } catch (error) {
+    //   setError(error.message);
+    // }
+  };
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -29,6 +42,8 @@ function LogIn() {
 
     setLoading(false)
   }
+
+  
   return (
     <div className="top ">
       <h2 className="mt-1 mb-5">LogIn to continue</h2>
@@ -61,11 +76,11 @@ function LogIn() {
 
             </div>
            
-              <button className="close-btn btn btn-block mb-4 col-lg-12" type="submit" disabled={loading}>submit</button>
+              <button className="close-btn btn btn-block mb-4 col-lg-12" type="submit" >submit</button>
               <Link to="/forgot-password">Forgot Password?</Link>
               <p className="line-text">Don't have an account? <Link to = "/signup">Signup instead</Link></p>
               <p className="text-center"> OR</p>
-              <button className=" btn btn-danger btn-lg col-lg-12" onSubmit={signInWithPopup}>continue with Google</button>
+              <button className=" btn btn-danger btn-lg col-lg-12" type = 'submit' onSubmit={signInWithGoogle}>continue with Google</button>
              
     
           </form>

@@ -2,6 +2,13 @@ body {
     padding: 25px;
     
   }
+  .sign-out{
+    color:white;
+  }
+  .temp{
+    display: flex;
+    justify-content: space-between;
+  }
   #closing {
     height: 50px;
   }
