@@ -40,7 +40,7 @@ function Home() {
   useEffect(() => {
     const savedBooks = JSON.parse(localStorage.getItem("books"));
     if (savedBooks) {
-      setFormData(savedBooks);
+      setBooks(savedBooks);
     }
   }, []);
 
