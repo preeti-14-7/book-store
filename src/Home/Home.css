@@ -10,7 +10,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
   }
-  .close-btn{
+  .close-btn,.signout{
     background-color: blueviolet;
     color: white;
     border-color: white;
@@ -28,7 +28,7 @@ body {
   }
   
   .newbook:hover,
-  .submit:hover ,.remove:hover,.close-btn:hover{
+  .submit:hover ,.remove:hover,.close-btn:hover,.signout:hover{
     background-color: burlywood;
    
   }

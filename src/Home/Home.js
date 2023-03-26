@@ -1,7 +1,10 @@
 import "./Home.css";
-
-import React, { useState } from 'react';
+import { Link } from "react-router-dom";
+import React, { useState,useEffect } from 'react';
 import Modal from 'react-modal';
+// import {db} from '../firebase';
+// import { collection, addDoc, getDocs } from "firebase/firestore";
+
 
 const initialFormData = { title: '', author: '', pages: 0, isRead: false };
 
@@ -9,19 +12,7 @@ function Home() {
   const [books, setBooks] = useState([]);
   const [formData, setFormData] = useState(initialFormData);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
-  const handleChangeInput = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  }
-
-  const addBookToLibrary = (e) => {
-    e.preventDefault();
-    console.log(formData);
-    setBooks([...books, formData]);
-    closeModal();
-  }
-
+  
   const openModal = () => {
     setModalIsOpen(true);
   };
@@ -31,9 +22,32 @@ function Home() {
     setModalIsOpen(false);
   };
 
+
+  const handleChangeInput = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  }
+
+
+  const addBookToLibrary = (e) => {
+    e.preventDefault();
+    setBooks([...books, formData]);
+    localStorage.setItem("books", JSON.stringify(books));
+    console.log(books);
+    closeModal();
+  }
+  
+  useEffect(() => {
+    const savedBooks = JSON.parse(localStorage.getItem("books"));
+    if (savedBooks) {
+      setFormData(savedBooks);
+    }
+  }, []);
+
   return (
     <div>
       <button className="newbook " onClick={openModal}>Add your Book</button>
+      <button className = "signout btn"><Link to="/">Sign Out </Link></button>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -49,6 +63,7 @@ function Home() {
 
                 <div className="top-part">
                   <h4 className="mt-1 mb-5 pb-1">Add Your Book</h4>
+                 
                   <button className="close-btn btn btn-block btn-sm" id="closing" onClick={closeModal}>X</button>
                 </div>
 
