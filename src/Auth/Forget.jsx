@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
+import { Link } from 'react-router-dom';
 import firebase from 'firebase/compat/app';
+import './Forget.css'
 function Forget()
 {
     const [email, setEmail] = useState('');
@@ -27,9 +29,11 @@ function Forget()
                  
                     <input type="email" name="title" className="form-control"
                       placeholder="Enter Your Mail id" value={email} onChange={handleEmailChange} />
-                      <button className="btn btn-primary btn-block mt-2" type='submit' onClick={handleSubmit}>Submit</button>
+                      <button className="close-btn btn btn-block mt-2" type='submit' onClick={handleSubmit}>Submit</button>
+                      <button className="close-btn btn btn-block mt-2" ><Link to='/'>Log In</Link></button>
                       {error && <p>{error}</p>}
       {success && <p>Reset email sent. Please check your email.</p>}
+    
              
              
              </div>

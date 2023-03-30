@@ -9,23 +9,24 @@ function LogIn() {
   const emailRef = useRef()
   const passwordRef = useRef()
   const { login } = useAuth()
- 
+
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
  
 
   const signInWithGoogle = async () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
     console.log("enter")
-    // try {
-    //   await firebase.auth().signInWithPopup(provider);
-    //     console.log("enter")
-    //      navigate('/home');
+    const provider = new firebase.auth.GoogleAuthProvider();
+   
+    try {
+      await firebase.auth().signInWithPopup(provider);
+        console.log("enter")
+         navigate('/home');
       
-    // } catch (error) {
-    //   setError(error.message);
-    // }
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   async function handleSubmit(e) {
@@ -35,6 +36,7 @@ function LogIn() {
       setError("")
       setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
+    
       navigate('/home')
     } catch {
       setError("Failed to log in")
@@ -59,8 +61,6 @@ function LogIn() {
                 placeholder="Email"
                 id="email"
                 ref={emailRef}
-
-
               />
 
             </div>
@@ -80,10 +80,8 @@ function LogIn() {
               <Link to="/forgot-password">Forgot Password?</Link>
               <p className="line-text">Don't have an account? <Link to = "/signup">Signup instead</Link></p>
               <p className="text-center"> OR</p>
-              <button className=" btn btn-danger btn-lg col-lg-12" type = 'submit' onSubmit={signInWithGoogle}>continue with Google</button>
-             
-    
           </form>
+          <button className=" close-btn btn btn-block mb-4 col-lg-12" type = 'submit' onClick={signInWithGoogle}>continue with Google</button>
 
         </div>
       </div>

@@ -18,7 +18,7 @@ body {
     justify-content: space-between;
   }
   .close-btn,.signout{
-    background-color: blueviolet;
+    background-color: #00A67E;
     color: white;
     border-color: white;
   }
@@ -27,24 +27,27 @@ body {
     bottom: 30px;
     right: 30px;
     padding: 15px;
-    background-color: blueviolet;
+    background-color: #00A67E;
     border-radius: 5%;
     color: white;
     border-color: white;
     
   }
-  
+  .isRead-btn {
+    background-color:#00A67E;
+    color:white
+  }
   .newbook:hover,
-  .submit:hover ,.remove:hover,.close-btn:hover,.signout:hover{
+  .submit:hover ,.remove:hover,.close-btn:hover,.signout:hover,.remove-btn:hover,.isRead-btn:hover {
     background-color: burlywood;
-   
+    color:white;
   }
   .material-icons {
     font-family: "Material Icons";
   }
   .submit{
     padding: 15px;
-    background-color: blueviolet;
+    background-color: #00A67E;
    
   }
   .form-content {
@@ -83,7 +86,7 @@ body {
     animation-duration: 0.4s;
   }
   .form-content b{
-    color: blueviolet;
+    color: #00A67E;
     font-family: 'Mochiy Pop P One', sans-serif;
   }
   input{
@@ -91,7 +94,7 @@ body {
     border-radius: 2%;
     padding: 5%;
     font-family: monospace;
-    border-color: blueviolet;
+    border-color: #00A67E;
   }
   
   @-webkit-keyframes animatetop {
@@ -138,7 +141,7 @@ body {
   }
   td:nth-child(2)
   {
-    color:blueviolet;
+    color:#00A67E;
     font-weight: bold;
     font-size: 1rem;
   }
@@ -151,7 +154,7 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   }
   .tbl thead tr {
-    background-color: blueviolet;
+    background-color: #00A67E;
     color: #ffffff;
     text-align: left;
     font-weight: bold;
@@ -175,22 +178,17 @@ body {
   }
   
   .tbl tbody tr:last-of-type {
-    border-bottom: 2px solid blueviolet;
+    border-bottom: 2px solid #00A67E;
   }
   
   .remove{
     padding: 10px;
-    background: blueviolet;
+    background: #00A67E;
     border-radius: 5%;
   }
   
-  .slider.round {
-    border-radius: 34px;
-  }
   
-  .slider.round:before {
-    border-radius: 50%;
-  }
+  
   .switch {
     position: relative;
     display: inline-block;
@@ -205,35 +203,19 @@ body {
   }
   
   .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    
     background-color: burlywood;
-    -webkit-transition: .4s;
-    transition: .4s;
+    
   }
   
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
+
   
   input:checked + .slider {
-    background-color: blueviolet;
+    background-color: #00A67E;
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px blueviolet;
+    box-shadow: 0 0 1px #00A67E;
   }
   
   input:checked + .slider:before {

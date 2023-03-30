@@ -27,7 +27,7 @@ export function AuthProvider({ children }) {
   }
 
   function logout() {
-      console.log("enterd")
+    //  console.log("enterd")
     return auth.signOut();
   }
 
