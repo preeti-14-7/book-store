@@ -92,7 +92,7 @@ function Home() {
   
    
     return (
-      <div>
+      <div className=".table-responsive ">
         <button className="newbook " onClick={openModal}>Add your Book</button>
         <div className="temp">
         <button className = "signout btn" onClick={LogOut}> Sign Out </button>
@@ -105,7 +105,7 @@ function Home() {
           className="row d-flex justify-content-center align-items-center h-100"
         >
   
-          <div className="col-xl-6">
+          <div className="col-xl-6 col-sm-6 ">
             <div className="card rounded-3 text-black">
   
               <div className="col-lg-12">
