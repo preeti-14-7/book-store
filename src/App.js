@@ -14,12 +14,13 @@ function App() {
   return (
         <AuthProvider>
         <div className="App">
-           <Router basename="/">
+           <Router basename="//book-store">
           <AuthProvider>
             <Routes >
               <Route path="/signup" element={<SignUp/>} />
               <Route path="/read" element={<Read/>} />
               <Route path="/" element={<LogIn/>} />
+              <Route path="/book-store" element={<LogIn/>} />
               <Route path="/home" element={ <PrivateRoute> <Home /></PrivateRoute>}/>
               <Route path="/forgot-password" element={<Forget/>} />
             </Routes >
