@@ -14,7 +14,7 @@ function App() {
   return (
         <AuthProvider>
         <div className="App">
-           <Router>
+           <Router basename="/">
           <AuthProvider>
             <Routes >
               <Route path="/signup" element={<SignUp/>} />
